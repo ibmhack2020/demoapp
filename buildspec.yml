@@ -16,7 +16,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - ng build --prod --aot --output-path ${BUILD_FOLDER} --base-href /${BASE_HREF}/
+      - ng build --prod --aot --output-path ${BASE_HREF}/${BUILD_FOLDER} --base-href /${BASE_HREF}/
   post_build:
      commands:
       - aws s3 cp ${BUILD_FOLDER} s3://${S3_BUCKET} --recursive
