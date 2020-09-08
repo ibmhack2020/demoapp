@@ -19,7 +19,8 @@ phases:
       - ng build --prod --aot --output-path ${BASE_HREF}/${BUILD_FOLDER} --base-href /${BASE_HREF}/
   post_build:
      commands:
-      - aws s3 cp ${BASE_HREF}/${BUILD_FOLDER} s3://${S3_BUCKET} --recursive
+      - aws s3 rm s3://${S3_BUCKET}/${BASE_HREF}/${BUILD_FOLDER} --recursive
+      - aws s3 cp ${BASE_HREF}/${BUILD_FOLDER} s3://${S3_BUCKET}/${BASE_HREF}/${BUILD_FOLDER} --recursive
       - echo Build completed on `date`
 artifacts:
   files:
