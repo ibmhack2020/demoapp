@@ -1,0 +1,28 @@
+version: 0.2
+env:
+  variables:
+    S3_BUCKET: "cv.schreck.berlin"
+    BUILD_FOLDER: "dist"
+    BASE_HREF: "demo"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+      - npm install -g @angular/cli
+  build:
+    commands:
+      - echo Build started on `date`
+      - ng build --prod --aot --output-path ${BUILD_FOLDER} --base-href /${BASE_HREF}/
+  post_build:
+     commands:
+      - aws s3 cp ${BUILD_FOLDER} s3://${S3_BUCKET} --recursive
+      - echo Build completed on `date`
+artifacts:
+  files:
+      - '**/*'
+  base-directory: '${BUILD_FOLDER}*'
+  discard-paths: yes
