@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-    S3_BUCKET: "cv.schreck.berlin"
+    S3_BUCKET: "angular-arul-demo"
     BUILD_FOLDER: "dist"
     BASE_HREF: "demo"
 phases:
