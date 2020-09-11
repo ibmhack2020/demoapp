@@ -1,0 +1,9 @@
+version: 0.2
+os: windows
+files:
+  - source: \dist
+    destination: c:\inetpub\wwwroot
+hooks:
+  BeforeInstall:
+    - location: \before-install.bat
+      timeout: 900
