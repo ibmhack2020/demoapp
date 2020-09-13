@@ -1,7 +1,6 @@
 version: 0.2
 env:
   variables:
-    S3_BUCKET: "angular-arul-demo"
     BUILD_FOLDER: "dist"
 phases:
   install:

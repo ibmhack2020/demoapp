@@ -2,8 +2,19 @@ version: 0.2
 os: windows
 files:
   - source: \dist
-    destination: c:\inetpub\wwwroot
+    destination: c:\inetpub\AngularApp
 hooks:
   BeforeInstall:
-    - location: \before-install.bat
-      timeout: 900
+  - location: \scripts\code-deploy.ps1 
+    timeout: 300
+    runas: Administrator
+  - location: \scripts\iis-install.ps1
+    timeout: 300
+    runas: Administrator
+  - location: \scripts\create-webapp.ps1
+    timeout: 300
+    runas: Administrator
+  AfterInstall:
+  - location: \scripts\after-install.ps1
+    timeout: 300
+    runas: Administrator
