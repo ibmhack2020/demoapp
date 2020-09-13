@@ -14,10 +14,10 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - ng build --prod --aot --output-path ${BUILD_FOLDER} --base-href /
+      - ng build --prod --aot
       - echo Build completed on `date`
 artifacts:
   files:
       - '**/*'
   base-directory: '${BUILD_FOLDER}*'
-  discard-paths: yes
+  discard-paths: no
