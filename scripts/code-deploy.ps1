@@ -1,3 +1,4 @@
+<powershell>
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 Import-Module AWSPowerShell
 $REGION = (ConvertFrom-Json (Invoke-WebRequest -Uri http://169.254.169.254/latest/dynamic/instance-identity/document -UseBasicParsing).Content).region
@@ -7,3 +8,4 @@ powershell.exe -Command Add-MpPreference -ExclusionPath "C:\ProgramData\Amazon\C
 powershell.exe -Command Add-MpPreference -ExclusionPath "c:\temp"
 c:\temp\codedeploy-agent.msi /quiet /l c:\temp\host-agent-install-log.txt
 #Start-Sleep -Seconds 60
+</powershell>

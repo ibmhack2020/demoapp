@@ -18,6 +18,6 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-      - '**/*'
+      - "**/*"
   base-directory: '${BUILD_FOLDER}*'
   discard-paths: no
