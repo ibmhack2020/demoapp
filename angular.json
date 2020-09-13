@@ -23,7 +23,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/scripts",
-              "src/web.config"
+              "src/web.config",
+              "src/appspec.yml"
             ],
             "styles": [
               "src/styles.css"
